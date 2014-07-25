@@ -103,9 +103,16 @@ function _nix-query () {
 }
 
 function _generations() {
-  local -a gens expl
-  gens=("${(@f)$(_call_program generations nix-env --list-generations)}")
-  compadd - $gens
+  local -a gens desc
+  gens=("${(f)$(_call_program generations nix-env --list-generations)}")
+  desc=()
+  for g ($gens); do
+    # escape the colon of the timestamp and split by words
+    g=(${=${g//:/\\:}})
+    # use the number of the generation as completion and the rest as description
+    desc+="${g[1]}:${g[2,-1]}"
+  done
+  _describe -t generations 'generations' desc
 }
 
 function _nix-env () {
