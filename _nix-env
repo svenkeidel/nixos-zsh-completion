@@ -151,11 +151,13 @@ function _nix-env () {
             '--set-flag[Modify meta attributes of installed packages]:name::value' \
             '--list-generations[Print a list of all currently existing generations for the active profile]' \
             '--delete-generations[Delete the specified generations of the current profile]:generations:_generations' \
+            '--rollback[Switch to the previous generation in the active profile]' \
             '(-i --install)'{-i,--install}'[Install Nix expression in a new generation]' \
             '(-u --upgrade)'{-u,--upgrade}'[Upgrade Nix expression in a new generation]' \
             '(-e --uninstall)'{-e,--uninstall}'[Uninstall Nix expression in a new generation]' \
             '(-q --query)'{-q,--query}'[Display information store paths or installed expressions]' \
             '(-S --switch-profile)'{-S,--switch-profile}'[Set the given path as the current user profile]:path:_files -/' \
+            '(-G --switch-generation)'{-G,--switch-generation}'[Switch to the given generation in the active profile]:generations:_generations' \
             && ret=0
         ;;
       esac
