@@ -97,7 +97,6 @@ function _nix-query () {
     '(-a --available)'{-a,--available}'[Query derivations that are available in the active Nix expression]' \
     '(-q --query)'{-q,--query}'[Display information store paths or installed expressions]' \
     ret=0;
-  # TODO: implement query options
 
   return ret
 }
