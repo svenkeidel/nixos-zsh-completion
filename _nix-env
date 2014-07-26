@@ -96,7 +96,7 @@ function _nix-query () {
     '(-P --attr-path)'{-P,--attr-path}'[Print the attribute path of the derivation]' \
     '(-a --available)'{-a,--available}'[Query derivations that are available in the active Nix expression]' \
     '(-q --query)'{-q,--query}'[Display information store paths or installed expressions]' \
-    ret=0;
+    && ret=0
 
   return ret
 }
